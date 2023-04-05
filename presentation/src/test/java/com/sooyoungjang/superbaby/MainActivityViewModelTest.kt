@@ -1,9 +1,8 @@
 package com.sooyoungjang.superbaby
 
 import com.appmattus.kotlinfixture.kotlinFixture
-import com.sooyoungjang.superbaby.contract.MainState
-import com.sooyoungjang.superbaby.contract.TestData
-import com.sooyoungjang.superbaby.vm.MainViewModel
+import com.sooyoungjang.superbaby.main.MainViewModel
+import com.sooyoungjang.superbaby.main.contract.MainState
 import io.kotest.core.spec.IsolationMode
 import io.kotest.core.spec.style.BehaviorSpec
 import kotlinx.coroutines.Dispatchers
