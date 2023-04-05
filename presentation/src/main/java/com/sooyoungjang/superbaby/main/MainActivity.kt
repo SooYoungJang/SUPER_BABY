@@ -1,14 +1,10 @@
-package com.sooyoungjang.superbaby
+package com.sooyoungjang.superbaby.main
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Surface
-import androidx.compose.ui.Modifier
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
-import com.sooyoungjang.ui.theme.SuperBabyTheme
+import com.sooyoungjang.theme.SuperBabyTheme
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -19,10 +15,10 @@ class MainActivity : ComponentActivity() {
 
         setContent {
             SuperBabyTheme {
-                Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background) {
-                }
+                MainScreen()
             }
-        }
 
+        }
     }
+
 }

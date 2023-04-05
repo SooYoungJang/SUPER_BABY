@@ -1,4 +1,4 @@
-package com.sooyoungjang.ui.theme
+package com.sooyoungjang.theme
 
 import android.app.Activity
 import android.os.Build
