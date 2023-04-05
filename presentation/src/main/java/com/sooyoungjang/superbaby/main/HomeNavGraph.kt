@@ -20,13 +20,13 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
+import com.sooyoungjang.superbaby.chatgpt.ChatGptRoute
+import com.sooyoungjang.superbaby.home.HomeScreen
+import com.sooyoungjang.superbaby.integral.IntegralScreen
 import com.sooyoungjang.superbaby.navigation.BottomNavItem
-import com.sooyoungjang.ui.chatgpt.ChatGptScreen
-import com.sooyoungjang.ui.home.HomeScreen
-import com.sooyoungjang.ui.integral.IntegralScreen
 
 @Composable
-fun HomeGraph() {
+fun HomeNavGraph() {
     val navController = rememberNavController()
     Scaffold(
         bottomBar = {
@@ -34,21 +34,17 @@ fun HomeGraph() {
                 BottomNavItem.values().forEach { item ->
                     val navBackStackEntry by navController.currentBackStackEntryAsState()
                     val selected = navBackStackEntry?.destination?.hierarchy?.any { it.route == item.screenRoute } == true
-                    LazyBottomNavigationItem(
-                        navController,
-                        selected,
-                        item
-                    )
+                    LazyBottomNavigationItem(navController, selected, item)
                 }
             }
         }
     ) { innerPadding ->
-        NavHost(navController = navController, startDestination = BottomNavItem.ChatGpt.screenRoute, Modifier.padding(innerPadding) ) {
+        NavHost(navController = navController, startDestination = BottomNavItem.Home.screenRoute, Modifier.padding(innerPadding)) {
             composable(BottomNavItem.Home.screenRoute) {
                 HomeScreen()
             }
             composable(BottomNavItem.ChatGpt.screenRoute) {
-                ChatGptScreen()
+                ChatGptRoute()
             }
             composable(BottomNavItem.Integral.screenRoute) {
                 IntegralScreen()

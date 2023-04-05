@@ -1,9 +1,8 @@
-package com.sooyoungjang.superbaby.vm
+package com.sooyoungjang.superbaby.main
 
 import androidx.lifecycle.ViewModel
-import com.sooyoungjang.superbaby.contract.MainSideEffect
-import com.sooyoungjang.superbaby.contract.MainState
-import com.sooyoungjang.superbaby.navigation.BottomNavItem
+import com.sooyoungjang.superbaby.main.contract.MainSideEffect
+import com.sooyoungjang.superbaby.main.contract.MainState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import org.orbitmvi.orbit.Container
 import org.orbitmvi.orbit.ContainerHost
@@ -18,10 +17,8 @@ class MainViewModel @Inject constructor() : ViewModel(), ContainerHost<MainState
     override val container: Container<MainState, MainSideEffect> = container(MainState()) { prepareData() }
 
     private fun prepareData() = intent {
-
-
         reduce {
-            state.copy(isLoading = false, bottomNavItems = listOf(BottomNavItem.Home, BottomNavItem.Integral, BottomNavItem.ChatGpt))
+            state.copy(isLoading = false)
         }
     }
 

@@ -1,10 +1,9 @@
-package com.sooyoungjang.superbaby.contract
+package com.sooyoungjang.superbaby.main.contract
 
 import com.sooyoungjang.superbaby.navigation.BottomNavItem
 
 data class MainState(
     val isLoading: Boolean = true,
-    val bottomNavItems: List<BottomNavItem> = listOf()
 )
 
 sealed interface MainSideEffect {
