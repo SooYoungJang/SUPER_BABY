@@ -10,7 +10,7 @@ enum class BottomNavItem(
     @DrawableRes
     val selectIcon: Int,
 ) {
-    Home(Const.Home, R.drawable.icon_home, R.drawable.icon_home_select),
-    ChatGpt(Const.ChatGpt, R.drawable.icon_bot, R.drawable.icon_bot_select),
-    Integral(Const.Integral, R.drawable.icon_integral, R.drawable.icon_integral_select)
+    Home(BottomGraphConst.Home, R.drawable.icon_home, R.drawable.icon_home_select),
+    ChatGpt(BottomGraphConst.ChatGpt, R.drawable.icon_bot, R.drawable.icon_bot_select),
+    Integral(BottomGraphConst.Integral, R.drawable.icon_integral, R.drawable.icon_integral_select)
 }
