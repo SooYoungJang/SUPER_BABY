@@ -7,16 +7,17 @@ import androidx.navigation.compose.rememberNavController
 import com.sooyoungjang.superbaby.inii_setting.InitUserSettingNavGraph
 import com.sooyoungjang.superbaby.inii_setting.InitUserSettingNavItem
 import com.sooyoungjang.superbaby.navigation.BottomNavItem
+import com.sooyoungjang.superbaby.navigation.HomeNavGraph
 
 @Composable
 fun MainScreen() {
     val navController = rememberNavController()
-    val startDestination = InitUserSettingNavItem.InitUser.screenRoute
+    val startDestination = BottomNavItem.Record.screenRoute
     NavHost(navController, startDestination = startDestination) {
         composable(route = InitUserSettingNavItem.InitUser.screenRoute) {
             InitUserSettingNavGraph()
         }
-        composable(route = BottomNavItem.Home.screenRoute) {
+        composable(route = BottomNavItem.Record.screenRoute) {
             HomeNavGraph()
         }
 //        composable(route = SettingNavItem.Setting.screenRoute) {
