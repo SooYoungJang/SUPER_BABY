@@ -1,4 +1,4 @@
-package com.sooyoungjang.superbaby.navigation
+package com.sooyoungjang.superbaby.navigation.bottom
 
 object BottomGraphConst {
     const val Record = "Record"
@@ -9,6 +9,11 @@ object BottomGraphConst {
     const val IntegralTitle = "전체"
     const val ChatGpt = "ChatGpt"
     const val ChatGptTitle = "ChatGpt"
+}
+
+object TopGraphConst {
+    const val Date = "Date"
+    const val DateTitle = "날짜"
 }
 
 object InitUserGraphConst {

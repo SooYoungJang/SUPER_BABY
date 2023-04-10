@@ -6,8 +6,8 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.sooyoungjang.superbaby.inii_setting.InitUserSettingNavGraph
 import com.sooyoungjang.superbaby.inii_setting.InitUserSettingNavItem
-import com.sooyoungjang.superbaby.navigation.BottomNavItem
-import com.sooyoungjang.superbaby.navigation.HomeNavGraph
+import com.sooyoungjang.superbaby.navigation.bottom.BottomNavItem
+import com.sooyoungjang.superbaby.navigation.bottom.HomeNavGraph
 
 @Composable
 fun MainScreen() {

@@ -1,4 +1,4 @@
-package com.sooyoungjang.superbaby.navigation
+package com.sooyoungjang.superbaby.navigation.bottom
 
 import androidx.annotation.DrawableRes
 import com.sooyoungjang.ui.R

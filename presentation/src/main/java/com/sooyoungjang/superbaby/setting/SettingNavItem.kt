@@ -1,7 +1,7 @@
 package com.sooyoungjang.superbaby.setting
 
 import androidx.annotation.DrawableRes
-import com.sooyoungjang.superbaby.navigation.SettingGraphConst
+import com.sooyoungjang.superbaby.navigation.bottom.SettingGraphConst
 import com.sooyoungjang.ui.R
 
 enum class SettingNavItem (
