@@ -1,13 +1,9 @@
 package com.sooyoungjang.date_picker
 
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.MutableState
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.DialogProperties
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -19,7 +15,7 @@ fun BaseDatePickerDialog(
 ) {
 
     DatePickerDialog(
-        properties = DialogProperties(usePlatformDefaultWidth = false),
+        properties = DialogProperties(dismissOnClickOutside = false),
         onDismissRequest = {
             openDialog.value = false
         }, confirmButton = {
@@ -30,6 +26,6 @@ fun BaseDatePickerDialog(
                 Text("OK")
             }
         }) {
-        DatePicker(state = datePickerState)
+        DatePicker(state = datePickerState, showModeToggle = false)
     }
 }

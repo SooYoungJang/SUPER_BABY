@@ -10,7 +10,7 @@ import com.sooyoungjang.superbaby.navigation.bottom.BottomNavItem
 import com.sooyoungjang.superbaby.navigation.bottom.HomeNavGraph
 
 @Composable
-fun MainScreen() {
+fun SuperBabyApp(mainViewModel: MainViewModel, onLauncherFinished : () -> Unit) {
     val navController = rememberNavController()
     val startDestination = BottomNavItem.Record.screenRoute
     NavHost(navController, startDestination = startDestination) {
@@ -24,4 +24,6 @@ fun MainScreen() {
 //            SettingNavGraph()
 //        }
     }
+
+    onLauncherFinished.invoke()
 }
