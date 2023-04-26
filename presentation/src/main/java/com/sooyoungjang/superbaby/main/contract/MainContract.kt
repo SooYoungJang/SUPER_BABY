@@ -7,3 +7,4 @@ data class MainState(
 sealed interface MainSideEffect {
 
 }
+

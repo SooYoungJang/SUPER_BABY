@@ -1,5 +1,6 @@
 package com.sooyoungjang.superbaby.navigation.bottom
 
+import android.util.Log
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
@@ -9,6 +10,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.unit.dp
 import androidx.navigation.NavDestination.Companion.hierarchy
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHostController
@@ -25,12 +27,17 @@ import com.sooyoungjang.top_bar.TopBar
 @Composable
 fun HomeNavGraph() {
     val navController = rememberNavController()
+    val navBackStackEntry by navController.currentBackStackEntryAsState()
     Scaffold(
-        topBar = { TopBar() },
+        topBar = {
+            when (navBackStackEntry?.destination?.route) {
+                BottomNavItem.ChatGpt.screenRoute -> {}
+                else -> TopBar()
+            }
+        },
         bottomBar = {
             NavigationBar() {
                 BottomNavItem.values().forEach { item ->
-                    val navBackStackEntry by navController.currentBackStackEntryAsState()
                     val selected = navBackStackEntry?.destination?.hierarchy?.any { it.route == item.screenRoute } == true
                     LazyBottomNavigationItem(navController, selected, item)
                 }
@@ -67,12 +74,14 @@ private fun RowScope.LazyBottomNavigationItem(
                 Icon(painter = if (selected) painterResource(id = item.selectIcon) else painterResource(id = item.icon),
                     contentDescription = item.screenRoute,
                     tint = Color.Unspecified,
-                    modifier = Modifier.fillMaxHeight(0.4f).aspectRatio(1f)
+                    modifier = Modifier
+                        .fillMaxHeight(0.4f)
+                        .aspectRatio(1f)
                 )
             }
         },
         alwaysShowLabel = false,
-        label = { Text(text = item.text, maxLines = 1, overflow = TextOverflow.Ellipsis, softWrap = false) },
+        label = { Text(modifier = Modifier.padding(top = 66.dp), text = item.text, maxLines = 1, overflow = TextOverflow.Ellipsis, softWrap = false) },
         onClick = {
             navController.navigate(item.screenRoute) {
                 popUpTo(navController.graph.findStartDestination().id) {

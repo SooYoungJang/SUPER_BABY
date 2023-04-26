@@ -14,7 +14,7 @@ import com.sooyoungjang.date_picker.BaseDatePickerDialog
 fun TopBar(
     modifier: Modifier = Modifier,
 ) {
-    val datePickerState = rememberDatePickerState(initialDisplayMode = DisplayMode.Picker)
+    val datePickerState = rememberDatePickerState(initialDisplayMode = DisplayMode.Picker, yearRange = IntRange(2023, 2023) )
     val openDialog = remember { mutableStateOf(false) }
 
     CenterAlignedTopAppBar(title = {
@@ -22,7 +22,7 @@ fun TopBar(
             openDialog.value = true
 
         }) {
-            Text(text = "sdf")
+            Text(text =  {datePickerState.selectedDateMillis}.toString())
         }
     })
 
