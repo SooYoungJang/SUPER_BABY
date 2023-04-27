@@ -5,6 +5,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
+import com.sooyoungjang.superbaby.main.ui.SuperBabyApp
 import com.sooyoungjang.theme.SuperBabyTheme
 import dagger.hilt.android.AndroidEntryPoint
 

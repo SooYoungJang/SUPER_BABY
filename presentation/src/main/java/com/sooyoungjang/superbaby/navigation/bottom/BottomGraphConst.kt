@@ -10,16 +10,3 @@ object BottomGraphConst {
     const val ChatGpt = "ChatGpt"
     const val ChatGptTitle = "ChatGpt"
 }
-
-object TopGraphConst {
-    const val Date = "Date"
-    const val DateTitle = "날짜"
-}
-
-object InitUserGraphConst {
-    const val InitUser = "InitUser"
-}
-
-object SettingGraphConst {
-    const val Setting = "Setting"
-}
