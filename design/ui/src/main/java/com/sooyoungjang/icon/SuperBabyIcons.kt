@@ -40,9 +40,6 @@ import androidx.compose.material.icons.rounded.VolumeOff
 import androidx.compose.material.icons.rounded.VolumeUp
 import androidx.compose.ui.graphics.vector.ImageVector
 
-/**
- * Now in Android icons. Material icons are [ImageVector]s, custom icons are drawable resource IDs.
- */
 object SuperBabyIcons {
     val AccountCircle = Icons.Outlined.AccountCircle
     val Add = Icons.Rounded.Add
@@ -65,11 +62,3 @@ object SuperBabyIcons {
     val VolumeOff = Icons.Rounded.VolumeOff
     val VolumeUp = Icons.Rounded.VolumeUp
 }
-
-/**
- * A sealed class to make dealing with [ImageVector] and [DrawableRes] icons easier.
- */
-//sealed interface Icon {
-//    data class ImageVectorIcon(val imageVector: ImageVector) : Icon
-//    data class DrawableResourceIcon(@DrawableRes val id: Int) : Icon
-//}

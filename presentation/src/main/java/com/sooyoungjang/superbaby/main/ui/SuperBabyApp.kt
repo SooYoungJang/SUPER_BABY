@@ -1,6 +1,8 @@
 package com.sooyoungjang.superbaby.main.ui
 
+import android.os.Build
 import android.util.Log
+import androidx.annotation.RequiresApi
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ExperimentalLayoutApi
@@ -15,36 +17,48 @@ import androidx.compose.foundation.layout.only
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.safeDrawing
 import androidx.compose.foundation.layout.windowInsetsPadding
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.navigation.NavDestination
 import androidx.navigation.NavDestination.Companion.hierarchy
 import com.sooyoungjang.SuperBabyNavigationBar
 import com.sooyoungjang.SuperBabyNavigationBarItem
+import com.sooyoungjang.date_picker.BaseDatePickerDialog
+import com.sooyoungjang.icon.SuperBabyIcons
+import com.sooyoungjang.superbaby.R
 import com.sooyoungjang.superbaby.main.MainViewModel
 import com.sooyoungjang.superbaby.main.navigation.SuperBabyNavHost
+import com.sooyoungjang.superbaby.navigation.bottom.BottomGraphConst
+import com.sooyoungjang.top_bar.SuperBabyTopAppBar
 
-@OptIn(ExperimentalLayoutApi::class)
+@RequiresApi(Build.VERSION_CODES.O)
+@OptIn(ExperimentalLayoutApi::class, ExperimentalMaterial3Api::class)
 @Composable
 fun SuperBabyApp(
     mainViewModel: MainViewModel,
     appState: SuperBabyState = rememberSuperBabyState(),
     onLauncherFinished: () -> Unit,
 ) {
+
+
+    if (appState.shouldShowSettingsDialog) {
+        BaseDatePickerDialog(
+            datePickerState = appState.datePickerState,
+            onDismiss = { appState.setShowSettingsDialog(false) },
+        )
+    }
+
     Scaffold(
-//        topBar = {
-//            when (navBackStackEntry?.destination?.route) {
-//                BottomNavItem.ChatGpt.screenRoute -> {}
-//                else -> TopBar()
-//            }
-//        },
         bottomBar = {
             SuperBabyBottomBar(
                 destinations = appState.topLevelDestinations,
@@ -65,10 +79,19 @@ fun SuperBabyApp(
                     ),
                 ),
         ) {
-            SuperBabyNavHost(appState.navController)
+            Column(Modifier.fillMaxSize()) {
+                // Show the top app bar on top level destinations.
+                val destination = appState.currentTopLevelDestination
+                if (destination != null && destination.screenRoute != BottomGraphConst.ChatGpt) {
+                    SuperBabyTopAppBar(
+                        datePickerState = appState.datePickerState,
+                        onActionClick = { appState.setShowSettingsDialog(true) }
+                    )
+                }
+                SuperBabyNavHost(appState.navController)
+            }
         }
     }
-
 
     onLauncherFinished.invoke()
 }
@@ -107,7 +130,7 @@ private fun SuperBabyBottomBar(
                     )
                 },
                 label = {
-                    Text(destination.screenRoute) },
+                    Text(destination.text) }
             )
         }
     }
@@ -115,6 +138,5 @@ private fun SuperBabyBottomBar(
 
 private fun NavDestination?.isTopLevelDestinationInHierarchy(destination: TopLevelDestination) =
     this?.hierarchy?.any {
-        Log.d("test","alkjlk ${destination.name}  ::: ${it.route}")
         it.route?.contains(destination.name, true) ?: false
     } ?: false

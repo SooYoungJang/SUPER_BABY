@@ -11,16 +11,16 @@ import androidx.compose.ui.window.DialogProperties
 fun BaseDatePickerDialog(
     modifier: Modifier = Modifier,
     datePickerState: DatePickerState,
-    openDialog: MutableState<Boolean>,
+    onDismiss: () -> Unit,
 ) {
 
     DatePickerDialog(
         properties = DialogProperties(dismissOnClickOutside = false),
         onDismissRequest = {
-            openDialog.value = false
+            onDismiss.invoke()
         }, confirmButton = {
             TextButton(
-                onClick = { openDialog.value = false },
+                onClick = { onDismiss.invoke() },
                 enabled = true
             ) {
                 Text("OK")
