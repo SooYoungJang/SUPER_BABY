@@ -6,7 +6,10 @@ androidxActivity = "1.7.0"
 androidxAppCompat = "1.6.1"
 androidxStartup = "1.1.1"
 androidxLifecycleKtx = "2.6.1"
+androidxTracing = "1.1.0"
 material3 = "1.1.0-beta01"
+androidxComposeRuntimeTracing = "1.0.0-alpha01"
+
 compose = "1.4.0"
 hilt = "2.45"
 orbit = "4.6.1"
@@ -34,6 +37,7 @@ androidx-activity-compose = { module = "androidx.activity:activity-compose", ver
 androidx-compose-ui-core = { module = "androidx.compose.ui:ui", version.ref = "compose" }
 androidx-compose-ui-tooling-core = { module = "androidx.compose.ui:ui-tooling", version.ref = "compose" }
 androidx-compose-ui-tooling-preview = { module = "androidx.compose.ui:ui-tooling-preview", version.ref = "compose" }
+androidx-compose-runtime-tracing = { group = "androidx.compose.runtime", name = "runtime-tracing", version.ref = "androidxComposeRuntimeTracing" }
 androidx-navigation-compose = { module = "androidx.navigation:navigation-compose", version.ref = "navigation" }
 androidx-hilt-compose = { module = "androidx.hilt:hilt-navigation-compose", version.ref = "navigationHilt" }
 
@@ -44,6 +48,7 @@ androidx-room-ktx = { module = "androidx.room:room-ktx", version.ref = "room" }
 androidx-startup-runtime = { group = "androidx.startup", name = "startup-runtime", version.ref = "androidxStartup" }
 androidx-lifecycle-runtime-ktx = { module = "androidx.lifecycle:lifecycle-runtime-ktx", version.ref = "androidxLifecycleKtx" }
 androidx-lifecycle-runtime-compose = { module = "androidx.lifecycle:lifecycle-runtime-compose", version.ref = "androidxLifecycleKtx" }
+androidx-tracing-ktx = { group = "androidx.tracing", name = "tracing-ktx", version.ref = "androidxTracing" }
 
 orbit-viewmodel = { group = "org.orbit-mvi", name = "orbit-viewmodel", version.ref = "orbit" }
 orbit-testing = { group = "org.orbit-mvi", name = "orbit-test", version.ref = "orbit" }
@@ -59,6 +64,7 @@ androidx-espresso-core-testing = { module = "androidx.test.espresso:espresso-cor
 androidx-compose-ui-junit4-testing = { module = "androidx.compose.ui:ui-test-junit4", version.ref = "compose" }
 androidx-compose-ui-tooling = { module = "androidx.compose.ui:ui-tooling", version.ref = "compose" }
 androidx-compose-ui-manifest-testing = { module = "androidx.compose.ui:ui-test-manifest", version.ref = "compose" }
+androidx-compose-material-iconsExtended = { group = "androidx.compose.material", name = "material-icons-extended" }
 androidx-compose-material3 = { module = "androidx.compose.material3:material3", version.ref = "material3" }
 de-mannodermaus-android-junit5 = { module = "de.mannodermaus.gradle.plugins:android-junit5", version.ref = "junit5" }
 google-compose-webview = { module = "com.google.accompanist:accompanist-webview", version.ref = "composeWebview" }

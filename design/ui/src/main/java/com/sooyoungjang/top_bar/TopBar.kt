@@ -17,17 +17,19 @@ fun TopBar(
     val datePickerState = rememberDatePickerState(initialDisplayMode = DisplayMode.Picker, yearRange = IntRange(2023, 2023) )
     val openDialog = remember { mutableStateOf(false) }
 
-    CenterAlignedTopAppBar(title = {
+    CenterAlignedTopAppBar(
+        title = {
         TextButton(onClick = {
             openDialog.value = true
 
         }) {
             Text(text =  {datePickerState.selectedDateMillis}.toString())
         }
-    })
+    }
+    )
 
     if (openDialog.value) {
-        BaseDatePickerDialog(modifier, datePickerState, openDialog)
+//        BaseDatePickerDialog(modifier, datePickerState, openDialog)
     }
 
 }

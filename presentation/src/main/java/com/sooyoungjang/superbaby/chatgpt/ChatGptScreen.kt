@@ -18,7 +18,7 @@ import com.google.accompanist.web.rememberWebViewState
 import com.sooyoungjang.superbaby.chatgpt.contract.ChatGptState
 
 @Composable
-fun ChatGptRoute(
+internal fun ChatGptRoute(
     onTopicClick: (() -> Unit)? = null,
     modifier: Modifier = Modifier,
     viewModel: ChatGptViewModel = hiltViewModel(),
@@ -48,7 +48,7 @@ fun ChatGptRoute(
 
 @SuppressLint("SetJavaScriptEnabled")
 @Composable
-fun ChatGptScreen(
+internal fun ChatGptScreen(
     modifier: Modifier = Modifier,
     state: ChatGptState,
     onTopicClick: (() -> Unit)? = null,

@@ -1,9 +1,10 @@
-package com.sooyoungjang.superbaby.navigation.bottom
+package com.sooyoungjang.superbaby.main.ui
 
 import androidx.annotation.DrawableRes
+import com.sooyoungjang.superbaby.navigation.bottom.BottomGraphConst
 import com.sooyoungjang.ui.R
 
-enum class BottomNavItem(
+enum class TopLevelDestination(
     val text: String,
     val screenRoute: String,
     @DrawableRes
