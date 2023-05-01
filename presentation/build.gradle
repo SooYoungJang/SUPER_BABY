@@ -64,9 +64,10 @@ dependencies {
     implementation(libs.orbit.viewmodel)
 
     //room
-    implementation(libs.androidx.room)
-    implementation(libs.androidx.room.ktx)
+
     kapt(libs.androidx.room.compiler)
+
+    implementation(libs.kotlinx.coroutines.android)
 
     implementation(libs.androidx.startup.runtime)
     implementation(libs.androidx.core.ktx)

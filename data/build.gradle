@@ -36,6 +36,11 @@ android {
 dependencies {
     implementation project(":domain")
 
+    api(libs.androidx.room)
+    api(libs.androidx.room.ktx)
+    implementation(libs.kotlinx.coroutines.android)
+    implementation(libs.hilt.android)
+
     testImplementation(libs.mockk)
     testImplementation(libs.google.truth)
     testImplementation (libs.fixture)
