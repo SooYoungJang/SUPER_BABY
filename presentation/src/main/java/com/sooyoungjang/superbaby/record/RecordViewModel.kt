@@ -8,8 +8,8 @@ import javax.inject.Inject
 
 @HiltViewModel
 class RecordViewModel @Inject constructor(
-    getAllRecordUseCase: GetAllRecordUseCase,
-    insertRecordUseCase: InsertRecordUseCase,
+    private val getAllRecordUseCase: GetAllRecordUseCase,
+    private val insertRecordUseCase: InsertRecordUseCase
 ) : ViewModel() {
 
 }

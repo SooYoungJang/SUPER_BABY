@@ -12,7 +12,7 @@ interface UserDao {
 
     @Query(
         value = """
-        SELECT * FROM users
+        SELECT * FROM user
         WHERE id = :id
     """,
     )

@@ -3,8 +3,9 @@ package com.sooyoungjang.data.user.local
 import com.sooyoungjang.data.user.local.dao.UserDao
 import com.sooyoungjang.data.user.local.entity.UserEntity
 import kotlinx.coroutines.flow.Flow
+import javax.inject.Inject
 
-class UserLocalDataSourceImpl(
+class UserLocalDataSourceImpl @Inject constructor(
     private val userDao: UserDao
 ): UserLocalDataSource {
 

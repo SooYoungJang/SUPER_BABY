@@ -5,9 +5,9 @@ import com.sooyoungjang.record.model.Record
 import javax.inject.Inject
 
 class InsertRecordUseCase @Inject constructor(
-//    private val recordRepository: RecordRepository
+    private val recordRepository: RecordRepository
 ) {
-//    suspend operator fun invoke(record: Record) {
-//        recordRepository.insertRecord(record)
-//    }
+    suspend operator fun invoke(record: Record) {
+        recordRepository.insertRecord(record)
+    }
 }

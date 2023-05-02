@@ -6,10 +6,10 @@ import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
 class GetAllRecordUseCase @Inject constructor(
-//    private val recordRepository: RecordRepository
+    private val recordRepository: RecordRepository
 ) {
-//    operator fun invoke(): Flow<List<Record>> {
-//        return recordRepository.getRecords()
-//    }
+    operator fun invoke(): Flow<List<Record>> {
+        return recordRepository.getRecords()
+    }
 
 }

@@ -9,6 +9,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 internal fun RecordRoute(
     modifier: Modifier = Modifier,
     viewModel: RecordViewModel = hiltViewModel(),
+
 ) {
 
 }
