@@ -30,11 +30,11 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_17
-        targetCompatibility JavaVersion.VERSION_17
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
     }
     kotlinOptions {
-        jvmTarget = JavaVersion.VERSION_17.toString()
+        jvmTarget = JavaVersion.VERSION_11.toString()
     }
     buildFeatures {
         compose true
@@ -57,15 +57,14 @@ android {
 
 dependencies {
     implementation project(":domain")
-    implementation project(":data")
+    implementation project(":di")
     implementation project(":design:ui")
 
     //orbit
     implementation(libs.orbit.viewmodel)
 
     //room
-
-    kapt(libs.androidx.room.compiler)
+    kapt(libs.room.compiler)
 
     implementation(libs.kotlinx.coroutines.android)
 

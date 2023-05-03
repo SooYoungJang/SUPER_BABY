@@ -1,4 +1,4 @@
-package com.sooyoungjang.data.di
+package com.sooyoungjang.di
 
 import android.content.Context
 import androidx.room.Room

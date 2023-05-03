@@ -1,4 +1,4 @@
-package com.sooyoungjang.data.di
+package com.sooyoungjang.di
 
 import com.sooyoungjang.data.AppDatabase
 import com.sooyoungjang.data.record.local.dao.RecordDao

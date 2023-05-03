@@ -8,8 +8,9 @@ import com.sooyoungjang.user.UserRepository
 import com.sooyoungjang.user.model.User
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
+import javax.inject.Inject
 
-class UserRepositoryImpl(
+class UserRepositoryImpl @Inject constructor(
     private val localDataSource: UserLocalDataSource,
 ) : UserRepository {
 

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="breast_feed">모유</string>
+    <string name="formula">분유</string>
+    <string name="baby_food">이유식</string>
+    <string name="diaper">기저귀</string>
+    <string name="sleep">수면</string>
+    <string name="breast_pump">유축</string>
+    <string name="bath">목욕</string>
+    <string name="hospital">병</string>
+    <string name="temperature">체온</string>
+    <string name="medicine">투약</string>
+    <string name="snack">간식</string>
+    <string name="milk">우유</string>
+    <string name="water">물</string>
+    <string name="etc">기타</string>
+    <string name="setting">설정</string>
+
+
+</resources>

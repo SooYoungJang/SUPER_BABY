@@ -19,12 +19,7 @@ interface RecordDao {
     @Query("SELECT * FROM records")
     fun getAllRecordEntity(): Flow<List<RecordEntity>>
 
-    @Query(
-        value = """
-        SELECT * FROM records
-        WHERE id = :id
-    """,
-    )
+    @Query(" SELECT * FROM records WHERE id = :id")
     fun getRecordEntity(id: String): Flow<RecordEntity>
 
     @Query("DELETE FROM records")

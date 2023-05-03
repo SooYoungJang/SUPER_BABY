@@ -24,11 +24,11 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_17
-        targetCompatibility JavaVersion.VERSION_17
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
     }
     kotlinOptions {
-        jvmTarget = JavaVersion.VERSION_17.toString()
+        jvmTarget = JavaVersion.VERSION_11.toString()
     }
     testOptions {
         unitTests.all { useJUnitPlatform() } //for kotest
@@ -43,7 +43,7 @@ dependencies {
     implementation(libs.kotlinx.coroutines.android)
     implementation(libs.hilt.android)
     kapt(libs.hilt.compiler)
-    kapt(libs.androidx.room.compiler)
+    kapt(libs.room.compiler)
 
     testImplementation(libs.mockk)
     testImplementation(libs.google.truth)

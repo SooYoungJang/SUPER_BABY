@@ -12,6 +12,6 @@ data class UserEntity(
 )
 
 fun UserEntity.asExternalModel() = User(
-    id = id,
-    userName = userName
+    id = id.toString(),
+    name = userName
 )

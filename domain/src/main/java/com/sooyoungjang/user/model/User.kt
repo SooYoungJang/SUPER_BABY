@@ -1,6 +1,6 @@
 package com.sooyoungjang.user.model
 
 data class User(
-    val id: Int,
-    val userName: String
+    val id: String,
+    val name: String
 )

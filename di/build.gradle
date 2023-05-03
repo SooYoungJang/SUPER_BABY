@@ -1,10 +1,13 @@
 plugins {
     id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
+    id 'dagger.hilt.android.plugin'
+    id 'kotlin-kapt'
 }
 
+
 android {
-    namespace 'com.sooyoungjang.domain'
+    namespace 'com.sooyoungjang.di'
     compileSdk Configurations.compileSdk
 
     defaultConfig {
@@ -31,8 +34,16 @@ android {
 }
 
 dependencies {
+
+    implementation project(":data")
+    implementation project(":domain")
+
+    implementation(libs.androidx.room)
+    implementation(libs.androidx.room.ktx)
     implementation(libs.kotlinx.coroutines.android)
     implementation(libs.hilt.android)
+    kapt(libs.hilt.compiler)
+    kapt(libs.room.compiler)
 
     testImplementation(libs.mockk)
     testImplementation(libs.google.truth)
@@ -40,5 +51,5 @@ dependencies {
     testImplementation(libs.kotest.runner.junit5)
     testImplementation(libs.kotest.assertions.core)
     testImplementation(libs.kotest.property)
-    androidTestImplementation(libs.androidx.compose.ui.junit4.testing)
+    testImplementation(libs.junit.junit4)
 }

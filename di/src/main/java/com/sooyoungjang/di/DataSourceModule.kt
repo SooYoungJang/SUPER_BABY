@@ -1,4 +1,4 @@
-package com.sooyoungjang.data.di
+package com.sooyoungjang.di
 
 import com.sooyoungjang.data.record.local.RecordLocalDataSource
 import com.sooyoungjang.data.record.local.RecordLocalDataSourceImpl
