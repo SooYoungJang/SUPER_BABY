@@ -1,5 +1,7 @@
 package com.sooyoungjang.di
 
+import com.sooyoungjang.data.datastore.local.DatastoreLocalDataSource
+import com.sooyoungjang.data.datastore.local.DatastoreLocalDataSourceImpl
 import com.sooyoungjang.data.record.local.RecordLocalDataSource
 import com.sooyoungjang.data.record.local.RecordLocalDataSourceImpl
 import com.sooyoungjang.data.user.local.UserLocalDataSource
@@ -16,9 +18,13 @@ interface DataSourceModule {
 
     @Singleton
     @Binds
-    fun bindsRecordLocalDataSource(recordDao: RecordLocalDataSourceImpl): RecordLocalDataSource
+    fun bindsRecordLocalDataSource(impl: RecordLocalDataSourceImpl): RecordLocalDataSource
 
     @Singleton
     @Binds
-    fun bindsUserLocalDataSource(userDao: UserLocalDataSourceImpl): UserLocalDataSource
+    fun bindsUserLocalDataSource(impl: UserLocalDataSourceImpl): UserLocalDataSource
+
+    @Singleton
+    @Binds
+    fun bindsDatastoreLocalDataSource(impl: DatastoreLocalDataSourceImpl): DatastoreLocalDataSource
 }

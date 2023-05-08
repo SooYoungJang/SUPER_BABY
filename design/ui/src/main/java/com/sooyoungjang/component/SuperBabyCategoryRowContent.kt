@@ -33,7 +33,13 @@ import com.sooyoungjang.ui.R
 @Composable
 fun SuperBabyCategoryRowContent(
     categories: List<Category>,
-    onCategoryClick: () -> Unit,
+    onCategoryClick: (
+        id: Int,
+        startDateTime: String,
+        endDateTime: String,
+        category: String,
+        memo: String?,
+    ) -> Unit,
 ) {
     LazyRow() {
         categoryResourceCardItems(
@@ -45,7 +51,13 @@ fun SuperBabyCategoryRowContent(
 
 fun LazyListScope.categoryResourceCardItems(
     items: List<Category>,
-    onCategoryClick: () -> Unit,
+    onCategoryClick: (
+        id: Int,
+        startDateTime: String,
+        endDateTime: String,
+        category: String,
+        memo: String?,
+    ) -> Unit,
     itemModifier: Modifier = Modifier,
 ) = items(
     items = items,
@@ -59,7 +71,7 @@ fun LazyListScope.categoryResourceCardItems(
             painter = painter,
             contentDescription = contentDescription,
             displayText = displayText,
-            onCategoryClick = { onCategoryClick.invoke() },
+            onCategoryClick = onCategoryClick,
             modifier = itemModifier,
         )
     },
@@ -72,11 +84,17 @@ fun SuperBabyCategoryCard(
     painter: Painter,
     contentDescription: String,
     displayText: String,
-    onCategoryClick: () -> Unit,
+    onCategoryClick: (
+        id: Int,
+        startDateTime: String,
+        endDateTime: String,
+        category: String,
+        memo: String?,
+    ) -> Unit,
     modifier: Modifier = Modifier,
 ) {
     Card(
-        onClick = { onCategoryClick.invoke() },
+        onClick = { onCategoryClick.invoke(0, "2023-05-03", "2023-05-03", contentDescription, null) },
         shape = RoundedCornerShape(8.dp),
         modifier = modifier.padding(3.dp),
         colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),

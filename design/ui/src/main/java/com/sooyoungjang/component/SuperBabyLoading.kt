@@ -21,7 +21,6 @@ import androidx.compose.ui.unit.dp
 
 @Composable
 fun SuperBabyLoading(
-    contentDesc: String,
     circleColor: Color = Color.Magenta,
     animationDelay: Int = 1000,
     modifier: Modifier = Modifier,

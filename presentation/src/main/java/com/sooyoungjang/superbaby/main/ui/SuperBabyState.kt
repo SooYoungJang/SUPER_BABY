@@ -30,6 +30,7 @@ import com.sooyoungjang.superbaby.record.navigation.navigateToRecord
 import com.sooyoungjang.superbaby.record.navigation.recordNavigationRoute
 import com.sooyoungjang.superbaby.time_line.navigation.navigateToTimeLine
 import com.sooyoungjang.superbaby.time_line.navigation.timeLineNavigationRoute
+import com.sooyoungjang.superbaby.tutorial.navigation.tutorialNavigationRoute
 import kotlinx.coroutines.CoroutineScope
 import java.time.LocalDate
 import java.time.ZoneOffset

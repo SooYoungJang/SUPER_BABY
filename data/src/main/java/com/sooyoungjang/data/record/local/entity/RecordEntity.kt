@@ -12,7 +12,7 @@ class RecordEntity(
     val startDateTime: String,
     val endDateTime: String,
     val category: String,
-    val memo: String
+    val memo: String? = null
 )
 
 fun RecordEntity.asExternalModel() = Record(

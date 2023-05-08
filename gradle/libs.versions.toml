@@ -28,8 +28,15 @@ navigation = "2.5.3"
 navigationHilt = "1.0.0"
 splashScreen = "1.0.0"
 composeWebview = "0.31.0-alpha"
+accompanist = "0.28.0"
+datastore = "1.0.0"
+kotlinxSerializationJson = "1.4.1"
 
 [libraries]
+accompanist-pager = { group = "com.google.accompanist", name = "accompanist-pager", version.ref = "accompanist" }
+accompanist-pager-indicators = { group = "com.google.accompanist", name = "accompanist-pager-indicators", version.ref = "accompanist" }
+datastore-preferences = { group ="androidx.datastore", name ="datastore-preferences", version.ref = "datastore" }
+datastore-preferences-core = { group ="androidx.datastore", name ="datastore-preferences-core", version.ref = "datastore" }
 kotlin-plugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
 android-gradle = { module = "com.android.tools.build:gradle", version.ref = "androidGradlePlugin" }
 androidx-core-ktx = { module = "androidx.core:core-ktx", version.ref = "androidxCore" }
@@ -45,7 +52,6 @@ androidx-hilt-compose = { module = "androidx.hilt:hilt-navigation-compose", vers
 
 androidx-core-splash-screen = { module = "androidx.core:core-splashscreen", version.ref = "splashScreen" }
 androidx-room = { module = "androidx.room:room-runtime", version.ref = "room" }
-#androidx-room-compiler = { module = "androidx.room:room-compiler", version.ref = "room" }
 room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "room" }
 androidx-room-ktx = { module = "androidx.room:room-ktx", version.ref = "room" }
 androidx-startup-runtime = { group = "androidx.startup", name = "startup-runtime", version.ref = "androidxStartup" }
@@ -77,6 +83,8 @@ android-hilt = { module = "com.google.dagger:hilt-android-gradle-plugin", versio
 fixture = { module = "com.appmattus.fixture:fixture", version.ref = "fixture" }
 mockk = { module = "io.mockk:mockk", version.ref = "mockk" }
 google-truth = { module = "com.google.truth:truth", version.ref = "truth" }
+kotlin-serialization = { module = "org.jetbrains.kotlin:kotlin-serialization", version.ref = "kotlin" }
+kotlinx-serialization-json = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version.ref = "kotlinxSerializationJson" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "androidGradlePlugin" }
@@ -85,5 +93,4 @@ kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
 hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
 kapt = { id = "org.jetbrains.kotlin.kapt", version.ref = "kotlin" }
-
 

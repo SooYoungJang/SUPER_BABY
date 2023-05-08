@@ -5,5 +5,5 @@ data class Record(
     val startDateTime: String,
     val endDateTime: String,
     val category: String,
-    val memo: String
+    val memo: String?
 )

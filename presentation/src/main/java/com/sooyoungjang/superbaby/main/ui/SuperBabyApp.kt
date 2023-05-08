@@ -1,7 +1,7 @@
 package com.sooyoungjang.superbaby.main.ui
 
 import android.os.Build
-import android.util.Log
+import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -21,28 +21,30 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
-import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.res.stringResource
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavDestination
 import androidx.navigation.NavDestination.Companion.hierarchy
 import com.sooyoungjang.SuperBabyNavigationBar
 import com.sooyoungjang.SuperBabyNavigationBarItem
+import com.sooyoungjang.component.SuperBabyLoading
 import com.sooyoungjang.date_picker.BaseDatePickerDialog
-import com.sooyoungjang.icon.SuperBabyIcons
-import com.sooyoungjang.superbaby.R
 import com.sooyoungjang.superbaby.main.MainViewModel
+import com.sooyoungjang.superbaby.main.contract.MainUiState
 import com.sooyoungjang.superbaby.main.navigation.SuperBabyNavHost
-import com.sooyoungjang.superbaby.navigation.bottom.BottomGraphConst
+import com.sooyoungjang.superbaby.tutorial.TutorialRoute
+import com.sooyoungjang.superbaby.tutorial.TutorialScreen
 import com.sooyoungjang.top_bar.SuperBabyTopAppBar
 
 @RequiresApi(Build.VERSION_CODES.O)
-@OptIn(ExperimentalLayoutApi::class, ExperimentalMaterial3Api::class)
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun SuperBabyApp(
     mainViewModel: MainViewModel,
@@ -50,6 +52,26 @@ fun SuperBabyApp(
     onLauncherFinished: () -> Unit,
 ) {
 
+    val state by mainViewModel.container.stateFlow.collectAsStateWithLifecycle()
+    val context = LocalContext.current
+
+    when (state.uiState) {
+        MainUiState.Tutorial -> TutorialRoute()
+        MainUiState.Error -> Toast.makeText(context, "error 가 발생 하였습니다. 로그인을 다시 해 주세요.", Toast.LENGTH_SHORT).show()
+        MainUiState.Empty -> Toast.makeText(context, "데이터가 없습니다.", Toast.LENGTH_SHORT).show()
+        MainUiState.Loading -> MainLoading()
+        is MainUiState.Success -> MainScreen(appState = appState)
+    }
+
+    onLauncherFinished.invoke()
+}
+
+@OptIn(ExperimentalMaterial3Api::class, ExperimentalLayoutApi::class)
+@RequiresApi(Build.VERSION_CODES.O)
+@Composable
+fun MainScreen(
+    appState: SuperBabyState = rememberSuperBabyState(),
+) {
 
     if (appState.shouldShowSettingsDialog) {
         BaseDatePickerDialog(
@@ -92,8 +114,6 @@ fun SuperBabyApp(
             }
         }
     }
-
-    onLauncherFinished.invoke()
 }
 
 
@@ -130,9 +150,25 @@ private fun SuperBabyBottomBar(
                     )
                 },
                 label = {
-                    Text(destination.text) }
+                    Text(destination.text)
+                }
             )
         }
+    }
+}
+
+@Composable
+private fun MainLoading(
+    modifier:Modifier = Modifier
+) {
+    Column(
+        modifier = Modifier.fillMaxSize(),
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        SuperBabyLoading(
+            modifier = modifier
+        )
     }
 }
 

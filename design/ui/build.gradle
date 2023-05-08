@@ -39,6 +39,8 @@ android {
 
 dependencies {
     api(libs.androidx.compose.material.iconsExtended)
+    api(libs.accompanist.pager)
+    api(libs.accompanist.pager.indicators)
 
     kapt(libs.room.compiler)
 

@@ -3,6 +3,7 @@ buildscript {
         classpath(libs.de.mannodermaus.android.junit5)
         classpath(libs.jacoco.core)
         classpath(libs.android.hilt)
+        classpath(libs.kotlin.serialization)
     }
 }
 

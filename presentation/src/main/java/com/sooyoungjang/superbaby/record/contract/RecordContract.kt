@@ -1,6 +1,7 @@
 package com.sooyoungjang.superbaby.record.contract
 
 import com.sooyoungjang.component.Category
+import com.sooyoungjang.product.Product
 import com.sooyoungjang.record.model.Record
 import com.sooyoungjang.user.model.User
 
@@ -15,8 +16,8 @@ sealed interface RecordUiState {
     object Empty: RecordUiState
 
     data class Success(
+        val product: Product,
         val categories: List<Category>,
-        val userRecords: List<UserRecord>,
     ) : RecordUiState
 }
 
@@ -31,7 +32,7 @@ data class UserRecord constructor(
     val startDateTime: String,
     val endDateTime: String,
     val category: String,
-    val memo: String
+    val memo: String?
 ) {
     constructor(record: Record, user: User) : this(
         id = record.id,
