@@ -2,4 +2,8 @@
     <string name="app_name">슈퍼베베</string>
     <string name="loading">로딩 중…</string>
     <string name="empty_header">데이터가 없습니다.</string>
+    <string name="start_title_desc">아기와의 기록을 위해 \n 로그인을 해주세요</string>
+    <string name="start_title">시작하기</string>
+    <string name="sign_in">로그인</string>
+    <string name="sign_up">회원가입</string>
 </resources>

@@ -32,6 +32,8 @@ accompanist = "0.28.0"
 datastore = "1.0.0"
 kotlinxSerializationJson = "1.4.1"
 
+kakao = "2.13.0"
+
 [libraries]
 accompanist-pager = { group = "com.google.accompanist", name = "accompanist-pager", version.ref = "accompanist" }
 accompanist-pager-indicators = { group = "com.google.accompanist", name = "accompanist-pager-indicators", version.ref = "accompanist" }
@@ -85,6 +87,8 @@ mockk = { module = "io.mockk:mockk", version.ref = "mockk" }
 google-truth = { module = "com.google.truth:truth", version.ref = "truth" }
 kotlin-serialization = { module = "org.jetbrains.kotlin:kotlin-serialization", version.ref = "kotlin" }
 kotlinx-serialization-json = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version.ref = "kotlinxSerializationJson" }
+
+kakao-login = { module = "com.kakao.sdk:v2-all", version.ref = "kakao" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "androidGradlePlugin" }

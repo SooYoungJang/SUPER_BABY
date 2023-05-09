@@ -39,8 +39,7 @@ import com.sooyoungjang.date_picker.BaseDatePickerDialog
 import com.sooyoungjang.superbaby.main.MainViewModel
 import com.sooyoungjang.superbaby.main.contract.MainUiState
 import com.sooyoungjang.superbaby.main.navigation.SuperBabyNavHost
-import com.sooyoungjang.superbaby.tutorial.TutorialRoute
-import com.sooyoungjang.superbaby.tutorial.TutorialScreen
+import com.sooyoungjang.superbaby.intro.IntroRoute
 import com.sooyoungjang.top_bar.SuperBabyTopAppBar
 
 @RequiresApi(Build.VERSION_CODES.O)
@@ -56,7 +55,7 @@ fun SuperBabyApp(
     val context = LocalContext.current
 
     when (state.uiState) {
-        MainUiState.Tutorial -> TutorialRoute()
+        MainUiState.Intro -> IntroRoute()
         MainUiState.Error -> Toast.makeText(context, "error 가 발생 하였습니다. 로그인을 다시 해 주세요.", Toast.LENGTH_SHORT).show()
         MainUiState.Empty -> Toast.makeText(context, "데이터가 없습니다.", Toast.LENGTH_SHORT).show()
         MainUiState.Loading -> MainLoading()

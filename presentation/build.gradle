@@ -6,6 +6,10 @@ plugins {
     id 'dagger.hilt.android.plugin'
 }
 
+// local.properties 사용을 위함
+Properties properties = new Properties()
+properties.load(project.rootProject.file('local.properties').newDataInputStream())
+
 android {
     namespace 'com.sooyoungjang.superbaby'
     compileSdk Configurations.compileSdk
@@ -21,6 +25,9 @@ android {
         vectorDrawables {
             useSupportLibrary true
         }
+
+        buildConfigField "String", "KAKAO_API_KEY", properties['kakao.api.key']
+        manifestPlaceholders = ["KAKAO_API_KEY" : properties['kakao.api.key'] ]
     }
 
     buildTypes {
@@ -53,6 +60,7 @@ android {
     kapt {
         correctErrorTypes true
     }
+
 }
 
 dependencies {
@@ -89,6 +97,8 @@ dependencies {
 
     implementation(libs.hilt.android)
     kapt(libs.hilt.compiler)
+
+    implementation(libs.kakao.login)
 
     testImplementation(libs.mockk)
     testImplementation(libs.google.truth)

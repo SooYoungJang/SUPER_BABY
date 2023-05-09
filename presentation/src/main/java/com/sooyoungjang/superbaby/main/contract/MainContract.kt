@@ -6,7 +6,7 @@ data class MainState(
 
 sealed interface MainUiState {
 
-    object Tutorial: MainUiState
+    object Intro: MainUiState
     object Loading : MainUiState
 
     object Empty: MainUiState

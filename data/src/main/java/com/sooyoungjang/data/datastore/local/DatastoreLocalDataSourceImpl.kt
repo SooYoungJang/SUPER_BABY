@@ -13,9 +13,9 @@ class DatastoreLocalDataSourceImpl @Inject constructor(
 
     override fun getUserPrefs(): Flow<UserPreferences> = dataStore.data
 
-    override suspend fun setUserIsSeenTutorial(isSeen: Boolean) {
+    override suspend fun setUserIsSeenIntro(isSeen: Boolean) {
         try {
-            dataStore.updateData { it.copy(isSeenTutorial = isSeen) }
+            dataStore.updateData { it.copy(isSeenIntro = isSeen) }
         } catch (ioException: IOException) {
             Log.e("SuperBabyPreferences", "Failed to update user preferences", ioException)
         }

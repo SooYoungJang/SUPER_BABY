@@ -2,11 +2,13 @@ package com.sooyoungjang.superbaby.main
 
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
 import androidx.annotation.RequiresApi
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
+import com.kakao.sdk.common.util.Utility
 import com.sooyoungjang.superbaby.main.ui.SuperBabyApp
 import com.sooyoungjang.theme.SuperBabyTheme
 import dagger.hilt.android.AndroidEntryPoint

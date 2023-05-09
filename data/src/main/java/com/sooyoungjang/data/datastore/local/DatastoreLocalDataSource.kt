@@ -6,7 +6,7 @@ import kotlinx.coroutines.flow.Flow
 interface DatastoreLocalDataSource {
     fun getUserPrefs() : Flow<UserPreferences>
 
-    suspend fun setUserIsSeenTutorial(isSeen: Boolean)
+    suspend fun setUserIsSeenIntro(isSeen: Boolean)
 
     suspend fun setUserIsLogin(isLogin: Boolean)
 

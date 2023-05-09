@@ -12,7 +12,7 @@ import java.io.OutputStream
 import javax.inject.Inject
 
 class UserPreferencesSerializer @Inject constructor() : Serializer<UserPreferences> {
-    override val defaultValue: UserPreferences = UserPreferences(isSeenTutorial = false, isLogin = false)
+    override val defaultValue: UserPreferences = UserPreferences(isSeenIntro = false, isLogin = false)
 
     override suspend fun readFrom(input: InputStream): UserPreferences {
         try {

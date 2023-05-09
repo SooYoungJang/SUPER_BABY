@@ -12,7 +12,7 @@ class DataStoreRepositoryImpl @Inject constructor(
 
     override fun getUserPrefs(): Flow<UserPreferences> = datastoreLocalDataSource.getUserPrefs()
 
-    override suspend fun setUserIsSeenTutorial(isSeen: Boolean) = datastoreLocalDataSource.setUserIsSeenTutorial(isSeen)
+    override suspend fun setUserIsSeenIntro(isSeen: Boolean) = datastoreLocalDataSource.setUserIsSeenIntro(isSeen)
 
     override suspend fun setUserIsLogin(isLogin: Boolean) = datastoreLocalDataSource.setUserIsLogin(isLogin)
 }

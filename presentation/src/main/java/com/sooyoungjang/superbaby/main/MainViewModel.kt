@@ -4,7 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.sooyoungjang.record.usecase.GetUserPrefUseCase
 import com.sooyoungjang.record.usecase.SetUserLoginUseCase
-import com.sooyoungjang.record.usecase.SetUserTutorialSeenUseCase
+import com.sooyoungjang.record.usecase.SetUserIntroSeenUseCase
 import com.sooyoungjang.superbaby.main.contract.MainSideEffect
 import com.sooyoungjang.superbaby.main.contract.MainState
 import com.sooyoungjang.superbaby.main.contract.MainUiState
@@ -20,7 +20,7 @@ import javax.inject.Inject
 @HiltViewModel
 class MainViewModel @Inject constructor(
     private val getUserPrefUseCase: GetUserPrefUseCase,
-    private val setUserTutorialSeenUseCase: SetUserTutorialSeenUseCase,
+    private val setUserIntroSeenUseCase: SetUserIntroSeenUseCase,
     private val setUserLoginUseCase: SetUserLoginUseCase
 ) : ViewModel(), ContainerHost<MainState, MainSideEffect> {
 
@@ -29,7 +29,7 @@ class MainViewModel @Inject constructor(
     private fun prepareData() = intent {
         getUserPrefUseCase.invoke()
             .collect {
-                when (it.isSeenTutorial) {
+                when (it.isSeenIntro) {
                     true -> {
                         when (it.isLogin) {
                             true -> {}
@@ -39,7 +39,7 @@ class MainViewModel @Inject constructor(
 
                     false -> reduce {
                         state.copy(
-                            uiState = MainUiState.Tutorial
+                            uiState = MainUiState.Intro
                         )
                     }
                 }
@@ -47,9 +47,9 @@ class MainViewModel @Inject constructor(
             }
     }
 
-    fun setUserTutorialHaveSeenPref(isSeen: Boolean = false) {
+    fun setUserIntroHaveSeenPref(isSeen: Boolean = false) {
         viewModelScope.launch {
-            setUserTutorialSeenUseCase.invoke(isSeen)
+            setUserIntroSeenUseCase.invoke(isSeen)
         }
     }
 
