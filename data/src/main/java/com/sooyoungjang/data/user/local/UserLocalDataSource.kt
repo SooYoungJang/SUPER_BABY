@@ -1,6 +1,6 @@
 package com.sooyoungjang.data.user.local
 
-import com.sooyoungjang.data.user.local.entity.UserEntity
+import com.sooyoungjang.data.user.entity.UserEntity
 import kotlinx.coroutines.flow.Flow
 
 interface UserLocalDataSource {

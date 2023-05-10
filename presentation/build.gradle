@@ -83,7 +83,6 @@ dependencies {
     //firebase
     implementation(libs.firebase.bom)
 //    implementation(libs.firebase.analytics)
-    implementation(libs.firebase.database)
 
     //room
     kapt(libs.room.compiler)

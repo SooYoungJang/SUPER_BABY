@@ -57,7 +57,7 @@ fun SuperBabyApp(
     val context = LocalContext.current
 
     when (state.uiState) {
-        MainUiState.Intro -> IntroRoute(compositeDisposable = compositeDisposable)
+        MainUiState.Intro -> IntroRoute(disposables = compositeDisposable)
         MainUiState.Error -> Toast.makeText(context, "error 가 발생 하였습니다. 로그인을 다시 해 주세요.", Toast.LENGTH_SHORT).show()
         MainUiState.Empty -> Toast.makeText(context, "데이터가 없습니다.", Toast.LENGTH_SHORT).show()
         MainUiState.Loading -> MainLoading()
