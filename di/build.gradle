@@ -38,6 +38,11 @@ dependencies {
     implementation project(":data")
     implementation project(":domain")
 
+
+    //rxjava
+    api(libs.rxjava3.rxandroid)
+    api(libs.rxjava3)
+
     implementation(libs.androidx.room)
     implementation(libs.androidx.room.ktx)
     implementation(libs.kotlinx.coroutines.android)

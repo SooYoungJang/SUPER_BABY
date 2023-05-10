@@ -4,14 +4,14 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.sooyoungjang.user.model.User
 
-@Entity(tableName = "user")
 data class UserEntity(
-    @PrimaryKey(autoGenerate = true)
-    val id: Int = 0,
-    val userName: String
+    val email: String,
+    val userName: String,
+    val birth: String
 )
 
 fun UserEntity.asExternalModel() = User(
-    id = id.toString(),
-    name = userName
+    email = email,
+    nickName = userName,
+    birth = birth
 )

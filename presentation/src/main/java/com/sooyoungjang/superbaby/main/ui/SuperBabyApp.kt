@@ -41,6 +41,7 @@ import com.sooyoungjang.superbaby.main.contract.MainUiState
 import com.sooyoungjang.superbaby.main.navigation.SuperBabyNavHost
 import com.sooyoungjang.superbaby.intro.IntroRoute
 import com.sooyoungjang.top_bar.SuperBabyTopAppBar
+import io.reactivex.rxjava3.disposables.CompositeDisposable
 
 @RequiresApi(Build.VERSION_CODES.O)
 @OptIn(ExperimentalMaterial3Api::class)
@@ -48,14 +49,15 @@ import com.sooyoungjang.top_bar.SuperBabyTopAppBar
 fun SuperBabyApp(
     mainViewModel: MainViewModel,
     appState: SuperBabyState = rememberSuperBabyState(),
-    onLauncherFinished: () -> Unit,
+    compositeDisposable: CompositeDisposable,
+    onLauncherFinished: () -> Unit
 ) {
 
     val state by mainViewModel.container.stateFlow.collectAsStateWithLifecycle()
     val context = LocalContext.current
 
     when (state.uiState) {
-        MainUiState.Intro -> IntroRoute()
+        MainUiState.Intro -> IntroRoute(compositeDisposable = compositeDisposable)
         MainUiState.Error -> Toast.makeText(context, "error 가 발생 하였습니다. 로그인을 다시 해 주세요.", Toast.LENGTH_SHORT).show()
         MainUiState.Empty -> Toast.makeText(context, "데이터가 없습니다.", Toast.LENGTH_SHORT).show()
         MainUiState.Loading -> MainLoading()

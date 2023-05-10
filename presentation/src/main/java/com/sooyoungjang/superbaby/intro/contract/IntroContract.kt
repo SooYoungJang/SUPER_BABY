@@ -35,6 +35,9 @@ sealed interface IntroUiState {
 
 sealed interface IntroSideEffect {
 
+    object EmailLogin: IntroSideEffect
+    object KakaoLogin: IntroSideEffect
+    object NaverLogin: IntroSideEffect
 }
 
 

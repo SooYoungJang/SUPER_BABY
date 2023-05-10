@@ -36,7 +36,7 @@ data class UserRecord constructor(
 ) {
     constructor(record: Record, user: User) : this(
         id = record.id,
-        userName = user.name,
+        userName = user.nickName,
         startDateTime = record.startDateTime,
         endDateTime = record.endDateTime,
         category = record.category,

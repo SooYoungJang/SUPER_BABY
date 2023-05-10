@@ -4,6 +4,7 @@ buildscript {
         classpath(libs.jacoco.core)
         classpath(libs.android.hilt)
         classpath(libs.kotlin.serialization)
+        classpath(libs.google.service)
     }
 }
 

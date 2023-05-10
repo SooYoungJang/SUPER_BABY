@@ -4,11 +4,16 @@ plugins {
     id 'de.mannodermaus.android-junit5'
     id 'kotlin-kapt'
     id 'dagger.hilt.android.plugin'
+    id 'com.google.gms.google-services'
 }
 
 // local.properties 사용을 위함
 Properties properties = new Properties()
 properties.load(project.rootProject.file('local.properties').newDataInputStream())
+def kakaoApiKey = properties.getProperty("kakao.api.key")
+def naverOauthClientId = properties.getProperty("naver.oauth.client.id")
+def naverOauthClientSecret = properties.getProperty("naver.oauth.client.secret")
+def naverOauthClientName = properties.getProperty("naver.oauth.client.name")
 
 android {
     namespace 'com.sooyoungjang.superbaby'
@@ -26,8 +31,12 @@ android {
             useSupportLibrary true
         }
 
-        buildConfigField "String", "KAKAO_API_KEY", properties['kakao.api.key']
-        manifestPlaceholders = ["KAKAO_API_KEY" : properties['kakao.api.key'] ]
+        buildConfigField "String", "KAKAO_API_KEY", "\"$kakaoApiKey\""
+        buildConfigField "String", "OAUTH_CLIENT_SECRET", "\"$naverOauthClientSecret\""
+        buildConfigField "String", "OAUTH_CLIENT_ID", "\"$naverOauthClientId\""
+        buildConfigField "String", "OAUTH_CLIENT_NAME", "\"$naverOauthClientName\""
+        manifestPlaceholders["KAKAO_API_KEY"] = properties["kakao.api.key"] as String
+
     }
 
     buildTypes {
@@ -71,6 +80,11 @@ dependencies {
     //orbit
     implementation(libs.orbit.viewmodel)
 
+    //firebase
+    implementation(libs.firebase.bom)
+//    implementation(libs.firebase.analytics)
+    implementation(libs.firebase.database)
+
     //room
     kapt(libs.room.compiler)
 
@@ -99,10 +113,11 @@ dependencies {
     kapt(libs.hilt.compiler)
 
     implementation(libs.kakao.login)
+    implementation(libs.naver.login)
 
     testImplementation(libs.mockk)
     testImplementation(libs.google.truth)
-    testImplementation (libs.fixture)
+    testImplementation(libs.fixture)
     testImplementation(libs.kotest.runner.junit5)
     testImplementation(libs.kotest.assertions.core)
     testImplementation(libs.kotest.property)

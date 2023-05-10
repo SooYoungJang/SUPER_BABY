@@ -12,12 +12,17 @@ import com.kakao.sdk.common.util.Utility
 import com.sooyoungjang.superbaby.main.ui.SuperBabyApp
 import com.sooyoungjang.theme.SuperBabyTheme
 import dagger.hilt.android.AndroidEntryPoint
+import io.reactivex.rxjava3.disposables.CompositeDisposable
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
 
     val viewModel: MainViewModel by viewModels()
     private var keepSplashScreen = true
+
+    @Inject
+    lateinit var compositeDisposable: CompositeDisposable
 
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,7 +34,7 @@ class MainActivity : ComponentActivity() {
 
         setContent {
             SuperBabyTheme {
-                SuperBabyApp(mainViewModel = viewModel) {
+                SuperBabyApp(mainViewModel = viewModel, compositeDisposable = compositeDisposable) {
                     keepSplashScreen = false
                 }
             }

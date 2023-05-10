@@ -1,19 +1,27 @@
 package com.sooyoungjang.component
 
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Dialog
 import androidx.compose.ui.window.DialogProperties
 
 @Composable
 fun SuperBabySignDialog(
     onDismissRequest: () -> Unit,
-    properties: DialogProperties = DialogProperties(),
     content: @Composable () -> Unit,
 ) {
     Dialog(
-        onDismissRequest = onDismissRequest,
-        properties = properties
+        properties = DialogProperties(usePlatformDefaultWidth = false),
+        onDismissRequest = { onDismissRequest.invoke() } ,
     ) {
-        content()
+        Surface(
+            shape = RoundedCornerShape(12.dp),
+            color = Color.White
+        ) {
+            content()
+        }
     }
 }

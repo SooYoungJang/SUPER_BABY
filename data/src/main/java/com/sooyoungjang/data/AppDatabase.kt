@@ -1,21 +1,14 @@
 package com.sooyoungjang.data
 
-import android.content.Context
 import androidx.room.Database
-import androidx.room.Room
 import androidx.room.RoomDatabase
-import androidx.sqlite.db.SupportSQLiteDatabase
 import com.sooyoungjang.data.record.local.dao.RecordDao
-import com.sooyoungjang.data.user.local.dao.UserDao
 import com.sooyoungjang.data.record.local.entity.RecordEntity
-import com.sooyoungjang.data.user.local.entity.UserEntity
 
-@Database(entities = [RecordEntity::class, UserEntity::class], version = 1, exportSchema = true)
+@Database(entities = [RecordEntity::class], version = 1, exportSchema = true)
 abstract class AppDatabase : RoomDatabase() {
 
     abstract fun recordDao(): RecordDao
-
-    abstract fun userDao(): UserDao
 
 //    companion object {
 //

@@ -26,7 +26,10 @@ fun IntroPager(
     currentPageNum: Int,
     pages: List<IntroPages>,
     onClickStart: () -> Unit = {},
-    onBackClick: (Int) -> Unit = {}
+    onBackClick: (Int) -> Unit = {},
+    onClickEmail: () -> Unit,
+    onClickKakao: () -> Unit,
+    onClickNaver: () -> Unit
 ) {
 
     BackHandler(enabled = pagerState.currentPage > 0) {
@@ -50,7 +53,7 @@ fun IntroPager(
         ) { index ->
             when(pages[index]) {
                 IntroPages.Start -> IntroStartScreen(onClickStart = onClickStart)
-                IntroPages.LoginForm -> LoginFormScreen(state = state)
+                IntroPages.LoginForm -> LoginFormScreen(state = state, onClickEmail, onClickKakao, onClickNaver)
             }
         }
     }
