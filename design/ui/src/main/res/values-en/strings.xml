@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="breast_feed">Breast Milk</string>
+    <string name="formula">Powdered Milk</string>
+    <string name="baby_food">Baby food</string>
+    <string name="diaper">Diaper</string>
+    <string name="sleep">Sleep</string>
+    <string name="breast_pump">Breast Pump</string>
+    <string name="bath">Bath</string>
+    <string name="hospital">Hospital</string>
+    <string name="temperature">Temperature</string>
+    <string name="medicine">Medicine</string>
+    <string name="snack">Snack</string>
+    <string name="milk">Milk</string>
+    <string name="water">Water</string>
+    <string name="etc">Etc</string>
+    <string name="setting">Setting</string>
+</resources>

@@ -10,6 +10,7 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
+        maven { url 'https://devrepo.kakao.com/nexus/content/groups/public/'}
     }
 }
 rootProject.name = "Super Baby"
@@ -17,3 +18,4 @@ include ':presentation'
 include ':data'
 include ':domain'
 include ':design:ui'
+include ':di'

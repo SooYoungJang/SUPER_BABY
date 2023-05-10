@@ -1,6 +1,9 @@
 plugins {
     id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
+    id 'dagger.hilt.android.plugin'
+    id "org.jetbrains.kotlin.plugin.serialization"
+    id 'kotlin-kapt'
 }
 
 android {
@@ -22,11 +25,11 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_17
-        targetCompatibility JavaVersion.VERSION_17
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
     }
     kotlinOptions {
-        jvmTarget = JavaVersion.VERSION_17.toString()
+        jvmTarget = JavaVersion.VERSION_11.toString()
     }
     testOptions {
         unitTests.all { useJUnitPlatform() } //for kotest
@@ -35,6 +38,18 @@ android {
 
 dependencies {
     implementation project(":domain")
+
+    api(libs.datastore.preferences)
+    api(libs.datastore.preferences.core)
+    api(libs.kotlinx.serialization.json)
+
+
+    implementation(libs.androidx.room)
+    implementation(libs.androidx.room.ktx)
+    implementation(libs.kotlinx.coroutines.android)
+    implementation(libs.hilt.android)
+    kapt(libs.hilt.compiler)
+    kapt(libs.room.compiler)
 
     testImplementation(libs.mockk)
     testImplementation(libs.google.truth)
