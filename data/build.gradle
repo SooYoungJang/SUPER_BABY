@@ -38,6 +38,7 @@ android {
 
 dependencies {
     implementation project(":domain")
+    implementation project(":di")
 
     api(libs.datastore.preferences)
     api(libs.datastore.preferences.core)

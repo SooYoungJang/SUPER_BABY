@@ -4,5 +4,5 @@ import com.sooyoungjang.data.user.entity.UserEntity
 import kotlinx.coroutines.flow.Flow
 
 interface UserRemoteDataSource {
-    suspend fun getUserEntity(email: String): Flow<UserEntity>
+    suspend fun getUserEntity(email: String): UserEntity
 }
