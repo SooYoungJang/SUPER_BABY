@@ -49,8 +49,8 @@ class IntroViewModel @Inject constructor(
         }
     }
 
-    private fun isValidateUser(email: String?, nickName: String?, birth: String?) {
-        getUserUseCase
+    private fun isValidateUser(email: String?, nickName: String?, birth: String?) = intent {
+        email?.let { getUserUseCase.invoke(email) }
     }
 
     fun getUserInfo() = intent {

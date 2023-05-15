@@ -20,8 +20,8 @@ class UserRemoteDataSourceImpl @Inject constructor(
     private val ioDispatcher: CoroutineDispatcher,
 ) : UserRemoteDataSource {
 
-    override suspend fun getUserEntity(email: String): UserEntity = withContext(ioDispatcher) {
-        ref.child("users").child("email").child(email).get().await().getValue<UserEntity>()
+    override suspend fun getUserEntity(email: String): UserEntity? = withContext(ioDispatcher) {
+        ref.child("users").child(email).get().await().getValue<UserEntity>()
     }
 
 }
